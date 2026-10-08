@@ -39,3 +39,10 @@ Trade-off: the hash is FNV-1a, not cryptographic. That is intentional — the go
 ## The awkward edge
 
 A `force: true` override bypasses both the kill switch and expiration. That is deliberate — an override is an explicit statement that this identifier is special. The cost is that overrides must be cleaned up manually; there is no auto-expiry on overrides, only on the flag itself.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
