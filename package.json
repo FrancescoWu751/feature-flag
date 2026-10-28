@@ -1,6 +1,6 @@
 {
   "name": "feature-flag",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Flag toggles with rollout percentages and override rules.",
   "type": "module",
   "main": "src/index.js",
